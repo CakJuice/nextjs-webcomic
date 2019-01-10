@@ -1,7 +1,7 @@
 {
   "name": "next-webcomic",
   "version": "1.0.0",
-  "description": "",
+  "description": "Webcomic frontend with NextJS & Bulma",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -9,10 +9,11 @@
     "start": "build start"
   },
   "keywords": [],
-  "author": "",
+  "author": "Cak Juice",
   "license": "ISC",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "axios": "^0.18.0",
     "bulma": "^0.7.2",
     "next": "^7.0.2",
     "react": "^16.7.0",
