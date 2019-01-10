@@ -4,9 +4,9 @@
   "description": "Webcomic frontend with NextJS & Bulma",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "build start"
+    "start": "NODE_ENV=production node server.js"
   },
   "keywords": [],
   "author": "Cak Juice",
@@ -15,6 +15,7 @@
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.18.0",
     "bulma": "^0.7.2",
+    "express": "^4.16.4",
     "next": "^7.0.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
