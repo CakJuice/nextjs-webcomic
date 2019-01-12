@@ -36,10 +36,12 @@ class Signup extends Component {
   }
 
   _resetErrorState() {
-    this.state.errorUsername = []
-    this.state.errorEmail = []
-    this.state.errorPassword1 = []
-    this.state.errorPassword2 = []
+    this.setState({
+      errorUsername: [],
+      errorEmail: [],
+      errorPassword1: [],
+      errorPassword2: []
+    })
   }
 
   _getPostData() {
@@ -55,7 +57,11 @@ class Signup extends Component {
       username: e.target.value
     })
 
-    if (this.state.errorUsername.length > 0) this.state.errorUsername = []
+    if (this.state.errorUsername.length > 0) {
+      this.setState({
+        errorUsername: []
+      })
+    }
   }
 
   _onchangeEmail(e) {
@@ -86,37 +92,29 @@ class Signup extends Component {
     let isValid = true
 
     if (this.state.username == '') {
-      let error = [...this.state.errorUsername]
-      error.push("Username required")
       this.setState({
-        errorUsername: error
+        errorUsername: ["Username required"]
       })
       isValid = false
     }
 
     if (this.state.email == '') {
-      let error = [...this.state.errorEmail]
-      error.push("Email required")
       this.setState({
-        errorEmail: error
+        errorEmail: ["Email required"]
       })
       isValid = false
     }
 
     if (this.state.password1 == '') {
-      let error = [...this.state.errorPassword1]
-      error.push("Password required")
       this.setState({
-        errorPassword1: error
+        errorPassword1: ["Password required"]
       })
       isValid = false
     }
 
     if (this.state.password2 == '') {
-      let error = [...this.state.errorPassword2]
-      error.push("Password confirmation required")
       this.setState({
-        errorPassword2: error
+        errorPassword2: ["Password confirmation required"]
       })
       isValid = false
     }
@@ -127,8 +125,6 @@ class Signup extends Component {
   _submitForm(e) {
     e.preventDefault()
 
-    this._resetErrorState()
-
     if (this._validate()) {
       const data = this._getPostData()
       axios.post('/signup', data).then((response) => {
@@ -137,7 +133,7 @@ class Signup extends Component {
         console.log(error)
       })
     } else {
-      console.log(this.state)
+      // console.log(this.state)
     }
   }
 
